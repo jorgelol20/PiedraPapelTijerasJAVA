@@ -1,0 +1,70 @@
+import javax.swing.*;
+
+public class PPT {
+    public static void main(String[] args){
+        String[] InicioOP = {"Jugar", "Salir", "Puntuación"};
+        boolean salir = false;
+        int contador = 0;
+        do {
+            int Inicio = JOptionPane.showOptionDialog(null, "¿Qué desea realizar?", "Piedra, Papel y Tijeras", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, InicioOP, "Jugar");
+            if (Inicio == 0){
+                String[] juego1 = {"Piedra", "Papel", "Tijera"};
+                int juego = JOptionPane.showOptionDialog(null, "Elige", "Piedra, Papel y Tijeras", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, juego1, "Piedra");
+                if (juego==0){
+                    double valor = Math.random()*4;
+                    System.out.println((int)valor);
+                    if((int)valor == 0){valor++;}
+                    if ((int)valor == 1){
+                        JOptionPane.showMessageDialog(null, "HABEIS EMPATADO", "EMPATE",JOptionPane.PLAIN_MESSAGE);
+                    }
+                    if ((int)valor == 2){
+                        JOptionPane.showMessageDialog(null, "HAS PERDIDO", "DERROTA",JOptionPane.PLAIN_MESSAGE);
+                        --contador;
+                    }
+                    if ((int)valor == 3){
+                        JOptionPane.showMessageDialog(null, "HAS GANADO", "VICTORIA",JOptionPane.PLAIN_MESSAGE);
+                        contador++;
+                    }
+                }
+                if (juego==1) {
+                    double valor = Math.random()*4;
+                    System.out.println((int)valor);
+                    if((int)valor == 0){valor++;}
+                    if ((int)valor == 2){
+                        JOptionPane.showMessageDialog(null, "HABEIS EMPATADO", "EMPATE",JOptionPane.PLAIN_MESSAGE);
+                    }
+                    if ((int)valor > 2){
+                        JOptionPane.showMessageDialog(null, "HAS PERDIDO", "DERROTA",JOptionPane.PLAIN_MESSAGE);
+                        --contador;
+                    }
+                    if ((int)valor == 1){
+                        JOptionPane.showMessageDialog(null, "HAS GANADO", "VICTORIA",JOptionPane.PLAIN_MESSAGE);
+                        contador++;
+                    }
+                }
+                if (juego==2) {
+                    double valor = Math.random()*4;
+                    System.out.println((int)valor);
+                    if((int)valor == 0){valor++;}
+                    if ((int)valor == 3){
+                        JOptionPane.showMessageDialog(null, "HABEIS EMPATADO", "EMPATE",JOptionPane.PLAIN_MESSAGE);
+                    }
+                    if ((int)valor == 1){
+                        JOptionPane.showMessageDialog(null, "HAS PERDIDO", "DERROTA",JOptionPane.PLAIN_MESSAGE);
+                        --contador;
+                    }
+                    if ((int)valor == 2){
+                        JOptionPane.showMessageDialog(null, "HAS GANADO", "VICTORIA",JOptionPane.PLAIN_MESSAGE);
+                        contador++;
+                    }
+                }
+            }
+            if(Inicio==1){
+                salir = true;
+            }
+            if(Inicio==2){
+                JOptionPane.showMessageDialog(null, ("Tu puntuación es de "+contador), "PUNTUACIÓN",JOptionPane.PLAIN_MESSAGE);
+            }
+        }while(!salir);
+        }
+}
